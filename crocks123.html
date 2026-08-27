@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>For Rochelle 🤍</title>
+
+  <link rel="stylesheet" href="crocks123.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <main class="page">
+
+    
+    <div class="heart">♥</div>
+
+    
+    <div class="message-container">
+      <p id="typedText"></p>
+    </div>
+
+    <!-- Rose -->
+    <div class="rose-container">
+      <div class="rose">✿</div>
+      <div class="stem"></div>
+      <div class="leaf"></div>
+    </div>
+
+  </main>
+
+  <script>
+    const text  = "Happy birthday Rochelle <3\n\nWELCOME TO THE AGE OF THE UNCS, I've been waiting for this day to finaly call you an Unc.\n\nYESSSSSS\n\nIt took one ranked game to find a forever friend. My tall, kind, nonchalant HG, you always know how to make my day better. Whenever I’m quiet, you’re the first to ask, “What’s up?” Whenever I’m lonely, you come to entertain me. Whenever I’m in a shit mood, you’re the first person I wanna talk to. NEVER CHANGE. <3\n\nHope your day’s got all the luck in the deck, chère. May every card fall your way. Also I made u a ringtone I hope you'll like it.";
+    const typedText = document.getElementById("typedText");
+    const rose = document.querySelector(".rose-container");
+
+    let index = 0;
+
+    function typeText() {
+      if (index < text.length) {
+        typedText.textContent += text.charAt(index);
+        index++;
+
+        setTimeout(typeText, 120);
+      } else {
+        
+        setTimeout(() => {
+          rose.classList.add("show");
+        }, 1000);
+      }
+    }
+
+    typeText();
+  </script>
+
+</body>
+</html>

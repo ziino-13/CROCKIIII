@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background: #17121c;
+
+  overflow: hidden;
+
+  font-family: "Dancing Script", cursive;
+}
+
+.page {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 420px;
+
+  color: #302033;
+
+  opacity: 0.45;
+
+  z-index: 0;
+
+  animation: heartPulse 4s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 0.5;
+  }
+}
+
+
+.message-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(900px, 88%);
+  max-height: 60vh;
+
+  text-align: center;
+  overflow-y: auto;
+}
+
+#typedText {
+  
+  white-space: pre-line;
+  margin: 0;
+  color: #f2eee6;
+
+  font-size: clamp(0.8rem, 3vw, 2.5rem);
+
+  line-height: 1.5;
+
+  text-shadow: 0 0 15px rgba(242, 238, 230, 0.15);
+}
+
+#typedText::after {
+  content: "|";
+
+  margin-left: 4px;
+
+  animation: cursorBlink 0.7s infinite;
+}
+
+@keyframes cursorBlink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.rose-container {
+  position: relative;
+
+  z-index: 3;
+
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  opacity: 0;
+
+  transform: translateY(30px);
+
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s ease;
+}
+
+.rose-container.show {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  animation: roseFloat 3s ease-in-out infinite;
+}
+
+
+.rose {
+  color: #f2eee6;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 90px;
+
+  line-height: 0.7;
+
+  text-shadow:
+    0 0 10px rgba(242, 238, 230, 0.3),
+    0 0 25px rgba(242, 238, 230, 0.15);
+}
+
+
+.stem {
+  width: 5px;
+
+  height: 100px;
+
+  background: #f2eee6;
+
+  border-radius: 10px;
+}
+
+
+.leaf {
+  position: absolute;
+
+  width: 35px;
+  height: 18px;
+
+  background: #f2eee6;
+
+  border-radius: 100% 0;
+
+  transform: rotate(-25deg);
+
+  bottom: 35px;
+
+  left: 20px;
+}
+
+
+@keyframes roseFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-7px) rotate(1deg);
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .heart {
+    font-size: 280px;
+  }
+
+  #typedText {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .rose {
+    font-size: 70px;
+  }
+
+  .stem {
+    height: 75px;
+  }
+}
