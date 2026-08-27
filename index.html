@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROCHELLE'S BDAY</title>
+</head>
+
+<body>
+<div class="card">
+  <span class="heart top">♥</span>
+
+  <div class="content">
+    <h1>Care to play your hand, Chere?</h1>
+
+    <a href="crocks123.html"><button>Oui</button></a>
+    <button id="noButton">Non</button>
+  </div>
+
+  <span class="heart bottom">♥</span>
+</div>
+<script>
+const noButton = document.getElementById("noButton");
+
+
+const rect = noButton.getBoundingClientRect();
+let originalX = rect.left;
+let originalY = rect.top;
+
+noButton.addEventListener("click", function () {
+  noButton.style.position = "fixed";
+
+  const padding = 20;
+  const maxX = window.innerWidth - noButton.offsetWidth - padding;
+  const maxY = window.innerHeight - noButton.offsetHeight - padding;
+
+  const x = Math.random() * (maxX - padding) + padding;
+  const y = Math.random() * (maxY - padding) + padding;
+
+  noButton.style.left = x + "px";
+  noButton.style.top = y + "px";
+});
+</script>
+
+</body>
+</html>
